@@ -11,7 +11,8 @@
 	</thead>
 
 	<tbody>
-	<?php 
+
+<?php 
 
 $sql = "SELECT * FROM gamers;";
 $result = $conn->query($sql);
