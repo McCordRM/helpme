@@ -5,30 +5,37 @@
 			<th>Username</th>
 			<th>First</th>
 			<th>Last</th>
-			<th>Bignote</th>
+			<th>bignote</th>
 			<th>Action</th>
 	    </tr>
 	</thead>
 
 	<tbody>
+	<?php 
 
-<?php 
-
-$sql = "SELECT * FROM gamers;";
+$sql = "SELECT * FROM clients;";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0)
 {
 	while ($row = $result->fetch_assoc())
 		{
-		echo 
-		"<tr><td>" . 
-		$row["id"] . "</td><td>" . 
-		$row["username"] . "</td><td>" . 
-		$row["first"] . "</td><td>" . 
-		$row["last"] . "</td><td>" . 
-		$row["bignote"] . "</td></tr>" ;
-		}
+			echo "
+			<tr>
+				<td>$row[id]</td>
+				<td>$row[username]</td>
+				<td>$row[password]</td>
+				<td>$row[first]</td>
+				<td>$row[last]</td>
+				<td>$row[bignote]</td>
+					<td>
+						<button>	<a href="clientprofile.php?id=$row[id]">	View	</a>	</button>
+						<button>	<a href="editprofile.php?id=$row[id]">		Edit		</a>	</button>
+						<button>	<a href="deleteprofile.php?id=$row[id]">	Delete	</a>	</button>
+					</td>
+			</tr>
+		";
+	}
 }	
 else
 	{
