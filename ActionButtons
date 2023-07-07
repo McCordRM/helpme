@@ -1,0 +1,43 @@
+<table class="content-table">
+	<thead>
+	    <tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>First</th>
+			<th>Last</th>
+			<th>Bignote</th>
+			<th>Action</th>
+	    </tr>
+	</thead>
+
+	<tbody>
+	<?php 
+
+$sql = "SELECT * FROM gamers;";
+$result = $conn->query($sql);
+
+if($result->num_rows > 0)
+{
+	while ($row = $result->fetch_assoc())
+		{
+		echo 
+		"<tr><td>" . 
+		$row["id"] . "</td><td>" . 
+		$row["username"] . "</td><td>" . 
+		$row["first"] . "</td><td>" . 
+		$row["last"] . "</td><td>" . 
+		$row["bignote"] . "</td></tr>" ;
+		}
+}	
+else
+	{
+		echo "No Results";
+	}
+	
+$conn->close();
+
+?>
+
+
+	</tbody>
+</table>
