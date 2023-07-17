@@ -1,0 +1,15 @@
+<?php
+
+if ( $user[ "name" ]  == "Bob" )
+	{
+		echo "
+			<menu>
+				<ul>
+					<li><a href="Bob.php"> Home</a></li>
+					<li><a href="include/logout.php"> Logout</a></li>
+				</ul>
+			</menu>
+			"
+	}
+
+?>
