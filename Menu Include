@@ -1,15 +1,50 @@
 <?php
 
-if ( $user[ "name" ]  == "Bob" )
+if ( $_SESSION[ 'name' ]  == 'Bob' )
 	{
-		echo "
+?>
+
+		<menu>
+			<ul>
+				<li><a href="Bob.php">			Home</a></li>
+				<li><a href="include/logout.php">	Logout</a></li>
+			</ul>
+		</menu>
+	
+<?php	
+	}
+else 
+	{
+		if ( $_SESSION[ 'name' ]  == 'Tom' )
+			{
+?> 
+		<menu>
+				<ul>
+					<li><a href="Tom.php">				Home</a></li>
+					<li><a href="include/Tools/MyProfile.php">	My Profile</a></li>
+					<li><a href="include/logout.php">		Logout</a></li>
+				</ul>
+		</menu>
+				
+<?php	
+			}
+		else
+			if ( $_SESSION[ 'name' ]  == 'DM' )
+				{
+			
+?> 
+				
 			<menu>
 				<ul>
-					<li><a href="Bob.php"> Home</a></li>
-					<li><a href="include/logout.php"> Logout</a></li>
+						<li><a href="DM.php">				Home</a></li>
+						<li><a href="include/Tools/playercreate.php">	Create Player</a></li>
+						<li><a href="include/logout.php">		Logout</a></li>
 				</ul>
 			</menu>
-			"
-	}
+				
+<?php	
 
+				}
+	}
+	
 ?>
