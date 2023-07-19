@@ -1,34 +1,27 @@
-<tbody>
-    <?php
-
-	$sql = "SELECT * FROM gamers;";
+<?php
+	$sql = "SELECT * FROM Shop WHERE item='Sword' ";
 	$result = $conn->query($sql);
-  		if($result->num_rows > 0)
-	  		{
-		  	while ($row = $result->fetch_assoc())
-				{
-					echo	"
+					
+		if($result->num_rows > 0)
+		{
+		while ($row = $result->fetch_assoc())
+			{
+				if( $row['VC'] == 'Yes' )
+					{
+						$theprice = $row['normalprice'] * $_SESSION['percentage'] ;
+					}
+				else
+					{
+						$theprice = $row['normalprice'];
+					}
+								
+					
+				echo	"
 					<tr>
-						<td>	$row[username]			</td>
-						<td>	$row[first]				</td>
-						<td>	$row[last]				</td>
-						<td>	$row[email]				</td>
-						<td>	$row[phone]				</td>
-						<td>	$row[smallnote]			</td>
-						<td>
-							<button class='view'> <a href='PlayerView.php?id=$row[id]'>    View </a> </button>
-							<button class='edit'> <a href='PlayerUpdate.php?id=$row[id]'>  Edit </a> </button>
-						</td>
+					<td>	$row[normalprice]	</td>
+					<td>	$theprice		</td>
 					</tr>
-						";
-				}
-			}	
-			else
-				{
-					echo	"No Results";
-				}
-	
-		$conn->close();
-
-	?>
-</tbody>
+					";
+			}
+		}	
+?>
